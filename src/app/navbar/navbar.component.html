@@ -1,0 +1,55 @@
+<mat-toolbar color="primary" class="sticky-top">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Rent A Car</span>
+    <span class="spacer"></span>
+    <div>
+      <a routerLink="/">
+        <mat-icon>power_settings_new</mat-icon>
+        Login</a>
+      <a routerLink="/register">
+        <mat-icon>fingerprint</mat-icon>
+        Register</a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      
+      <!-- <ng-container *ngIf="admin === 1"> -->
+      <a (click)="sidenav.toggle()" mat-list-item routerLink="/manage" routerLinkActive="active">
+        Manage Reservations
+        <mat-icon>calendar_today</mat-icon>
+        </a>
+
+        <a (click)="sidenav.toggle()" mat-list-item routerLink="/create-car" routerLinkActive="active">
+          Create Cars
+          <mat-icon>directions_car</mat-icon>
+          </a>
+
+          <a (click)="sidenav.toggle()" mat-list-item routerLink="/users" routerLinkActive="active">
+            Users
+            <mat-icon>person_add</mat-icon>
+            </a>
+
+            <a (click)="sidenav.toggle()" mat-list-item routerLink="/main" routerLinkActive="active">
+              Home
+              <mat-icon>home</mat-icon>
+              </a>
+      <!-- </ng-container> -->
+
+      <ng-container *ngIf="admin===0">
+        <a  mat-list-item routerLink="/main">
+          <mat-icon>home</mat-icon>
+          Main Page
+          </a>
+      </ng-container>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

@@ -1,0 +1,61 @@
+<div style="height: calc(100vh - 50px);">
+  <div class="container">
+    <mat-card>
+      <mat-card-title>Create A Car</mat-card-title>
+      <mat-card-content>
+        <form (submit)="onCreate(createform)" #createform="ngForm" >
+
+          <mat-form-field>
+            <input matInput
+            type="text"
+            placeholder="Please give brand"
+            name="brand"
+            ngModel
+            required
+            #brandInput="ngModel" >
+            <mat-error *ngIf="brandInput.invalid">Please enter a valid brand</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput
+            type="text"
+            placeholder="Please give model"
+            name="model"
+            ngModel
+            required
+            #modelInput="ngModel" >
+            <mat-error *ngIf="modelInput.invalid">Please enter a valid model</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput
+            type="text"
+            placeholder="Please give power"
+            name="power"
+            ngModel
+            required
+            #powerInput="ngModel" >
+            <mat-error *ngIf="powerInput.invalid">Please enter a valid power</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput
+            type="number"
+            placeholder="Please give seats"
+            name="seats"
+            ngModel
+            required
+            #seatsInput="ngModel" >
+            <mat-error *ngIf="seatsInput.invalid">Please enter seats</mat-error>
+          </mat-form-field>
+
+          <input #fileinput type="file" (change)="onFileSelected($event)" style="display: none;" />
+          <button matInput class="btn btn-outline-success" type="button" (click)="fileinput.click()">Select Image</button>
+
+          <button mat-raised-button color="primary" type="submit" [disabled]="createform.invalid">Create</button>
+
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

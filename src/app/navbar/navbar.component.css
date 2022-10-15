@@ -1,0 +1,11 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+a:hover {
+    color: #f5f5f5;
+}
+
+mat-nav-list {
+    padding-top: 25px;
+}
